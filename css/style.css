@@ -1,0 +1,1082 @@
+/*
+  Cores e letra principais do site.
+  Ao alterar estes valores, as cores usadas em várias secções atualizam-se juntas.
+*/
+:root {
+  --blackish-brown: #2B1F1D;
+  --soft-white: #EEEBDC;
+  --golden-yellow: #FFCF1F;
+  --punchy-red: #F5102C;
+  --wine: var(--blackish-brown);
+  --wine-dark: var(--blackish-brown);
+  --yellow: var(--golden-yellow);
+  --cream: var(--soft-white);
+  --cream-shade: var(--soft-white);
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Regras base partilhadas por toda a página. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--cream);
+  color: var(--wine-dark);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--punchy-red);
+}
+
+/* Lets keyboard users skip repeated navigation and reach page content. */
+.skip-link {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 30;
+  padding: .65rem 1rem;
+  transform: translateY(-160%);
+  background: var(--cream);
+  color: var(--wine);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Contorno visível quando se navega com teclado. */
+:focus-visible {
+  outline: 3px solid var(--punchy-red);
+  outline-offset: 3px;
+}
+
+/* Barra de navegação fixa no topo; o JavaScript pode escondê-la no scroll. */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .8rem 5vw;
+  background: var(--cream);
+  border-bottom: 2px solid var(--yellow);
+  transition: transform .25s ease;
+  will-change: transform;
+}
+
+/* Esta classe é adicionada pelo JavaScript quando a página desce. */
+.nav.nav-hidden {
+  transform: translateY(calc(-100% - 2px));
+}
+
+/* Mostra novamente a barra quando o utilizador navega com teclado. */
+.nav:focus-within {
+  transform: translateY(0);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: 54px;
+  max-width: 60px;
+  object-fit: contain;
+}
+
+.nav nav {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.nav nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav nav a:not(.btn) {
+  color: var(--blackish-brown);
+}
+
+.nav nav a:not(.btn):hover,
+.nav nav a:not(.btn):focus-visible,
+.nav nav a:not(.btn):active,
+.nav nav a:not(.btn)[aria-current="page"] {
+  color: var(--punchy-red);
+}
+
+/* Compact language switcher shown beside the navigation links. */
+.language-toggle {
+  min-width: 44px;
+  min-height: 40px;
+  padding: .35rem .7rem;
+  border: 2px solid var(--punchy-red);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--punchy-red);
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.language-toggle:hover {
+  background: var(--wine);
+  color: var(--cream);
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid var(--punchy-red);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--punchy-red);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 19px;
+  height: 2px;
+  margin: 0;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Estilo partilhado pelos botões e respetivas variações. */
+.btn {
+  display: inline-block;
+  background: var(--punchy-red);
+  color: var(--soft-white);
+  font: inherit;
+  font-weight: 700;
+  padding: .85rem 1.6rem;
+  border-radius: 999px;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--wine-dark);
+}
+
+.btn.small {
+  padding: .45rem 1.1rem;
+}
+
+.btn.yellow {
+  background: var(--punchy-red);
+  color: var(--soft-white);
+}
+
+.btn.yellow:hover {
+  background: var(--blackish-brown);
+}
+
+/* Primeira secção da página. */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  min-height: min(92vh, 850px);
+  padding: 4rem 5vw;
+  background: var(--wine);
+  color: var(--cream);
+  overflow: hidden;
+  text-align: left;
+}
+
+/* Escurece ligeiramente o vídeo para o texto do hero continuar legível. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgb(43 31 29 / 82%), rgb(43 31 29 / 38%)),
+    linear-gradient(0deg, rgb(43 31 29 / 28%), transparent);
+  pointer-events: none;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.hero:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-fullscreen {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--cream);
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hero-fullscreen:hover {
+  background: var(--yellow);
+  color: var(--wine-dark);
+}
+
+.hero h1 {
+  max-width: 100%;
+  font-size: clamp(3rem, 8.5vw, 6rem);
+  line-height: 1.06;
+  font-weight: 800;
+  margin-bottom: 1.4rem;
+  text-align: left;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  max-width: 34ch;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.hero .btn {
+  background: var(--punchy-red);
+  color: var(--soft-white);
+}
+
+.hero .btn:hover {
+  background: var(--blackish-brown);
+}
+
+/* Vídeo do Equador no hero; só começa a carregar quando o visitante carrega em play. */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--blackish-brown);
+}
+
+/* Espaçamento e largura comuns às secções de conteúdo. */
+.sec {
+  padding: 5.5rem 5vw;
+}
+
+/* Center the site's written content while retaining each layout's structure. */
+main,
+.footer {
+  text-align: center;
+}
+
+/* Justifica os parágrafos sem alterar o alinhamento dos títulos e rótulos. */
+main p:not(.tag):not(.tagline):not(.what-tagline):not(.destination-status) {
+  text-align: justify;
+}
+
+.product-category-copy,
+.product-landscape figcaption,
+.facts dt,
+.facts dd {
+  text-align: center;
+}
+
+.ticks {
+  display: table;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.destination-card {
+  align-items: center;
+}
+
+.steps li:nth-child(odd) {
+  text-align: center;
+}
+
+.footer {
+  justify-content: center;
+}
+
+.sec > h2,
+.sec > .lead,
+.sec > .grid,
+.sec > .steps,
+.product,
+.form-wrap {
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.sec h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.lead {
+  font-size: 1.05rem;
+  max-width: 62ch;
+  margin-inline: auto;
+  line-height: 1.55;
+}
+
+.what-copy {
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.what-copy .lead {
+  margin-inline: auto;
+}
+
+.what-tagline {
+  max-width: 62ch;
+  margin: -.7rem auto 1rem;
+  color: var(--wine);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Fundos alternativos usados para separar visualmente as secções. */
+.alt {
+  background: var(--cream-shade);
+}
+
+.dark {
+  background: var(--wine-dark);
+  color: var(--cream);
+}
+
+.dark a:not(.btn) {
+  color: var(--golden-yellow);
+}
+
+/* Grelhas de cartões para diferentes conteúdos. */
+.grid {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 2.2rem;
+}
+
+.grid.four {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: var(--cream);
+  border-left: 6px solid var(--yellow);
+  padding: 1.5rem;
+}
+
+.alt .card {
+  border-left-color: var(--wine);
+}
+
+/* Cards for current and planned LULO destinations. */
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 230px;
+}
+
+.destination-status {
+  margin-bottom: .65rem;
+  color: var(--wine);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.card.destination-card h3 {
+  font-size: 1.5rem;
+}
+
+.destination-card a {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--punchy-red);
+  font-weight: 800;
+}
+
+.destination-card-upcoming {
+  background: var(--cream);
+}
+
+.why-copy {
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.why-copy h3 {
+  max-width: 45ch;
+  margin-inline: auto;
+  margin-bottom: 1.25rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.why-copy p {
+  max-width: 75ch;
+  margin-inline: auto;
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+/* Introductory banner and long-form sections on the Who We Are page. */
+.story-hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 3rem;
+  padding: 4.5rem 8vw;
+  background: var(--wine);
+  color: var(--cream);
+}
+
+.story-hero-copy h1 {
+  max-width: 15ch;
+  margin: .8rem 0 1rem;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.story-hero-copy > p:last-child {
+  max-width: 55ch;
+  margin-inline: auto;
+  font-size: 1.05rem;
+}
+
+.story-hero img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 8px solid var(--cream);
+  border-radius: 48% 48% 12px 12px;
+}
+
+.story-content {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.story-content > p:not(.lead) {
+  max-width: 75ch;
+  margin: 1.2rem auto 0;
+  line-height: 1.8;
+}
+
+.story-content > .lead {
+  max-width: 75ch;
+}
+
+.story-subtitle {
+  margin: -.5rem 0 1rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.story-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6rem;
+  max-width: 1050px;
+  margin-inline: auto;
+  container-type: inline-size;
+}
+
+.story-two-column p {
+  max-width: none;
+  margin: .8rem 0 0;
+  line-height: 1.8;
+}
+
+.story-two-column h2 {
+  white-space: nowrap;
+  font-size: clamp(1rem, calc(1rem + 1vw), 2rem);
+  font-size: clamp(1.25rem, calc(4cqi - .25rem), 2.3rem);
+}
+
+.story-content .btn {
+  margin-top: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: .4rem;
+}
+
+/* Conteúdo da experiência no Equador e respetivos detalhes. */
+.product {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--wine-dark);
+  font-weight: 700;
+  padding: .2rem .8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  margin: -.7rem 0 1rem;
+  color: var(--yellow);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.product-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  max-width: 1050px;
+  margin: 3rem auto 0;
+}
+
+.product-category {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-top: 6px solid var(--yellow);
+  background: var(--cream);
+  color: var(--wine-dark);
+}
+
+.product-category img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.product-category-copy {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.product-category h3 {
+  margin-bottom: .55rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.product-landscapes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  max-width: 1050px;
+  margin: 1.2rem auto 0;
+}
+
+.product-landscape {
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--cream);
+  background: var(--cream);
+  color: var(--wine-dark);
+}
+
+.product-landscape img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+.product-landscape figcaption {
+  padding: .65rem .9rem;
+  font-weight: 700;
+}
+
+.ticks {
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0 2rem;
+}
+
+.ticks li {
+  padding-left: 1.8rem;
+  margin-bottom: .6rem;
+  position: relative;
+}
+
+/* Pequeno círculo amarelo usado como marcador da lista. */
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: .9rem;
+  height: .9rem;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+.facts {
+  border: 2px solid var(--yellow);
+  padding: 1.6rem;
+}
+
+.facts dl {
+  margin: 0;
+}
+
+.fact-item {
+  display: grid;
+  grid-template-columns: 1.35rem minmax(0, 1fr);
+  gap: .6rem 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(250 244 233 / 18%);
+}
+
+.fact-item:first-child {
+  padding-top: 0;
+}
+
+.fact-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.fact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: .15rem;
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.facts dt {
+  color: var(--yellow);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.facts dd {
+  margin: .35rem 0 0;
+}
+
+.fact-description {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .55rem;
+}
+
+.fact-check {
+  flex: 0 0 auto;
+  color: var(--golden-yellow);
+  font-size: 1.15em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Linha temporal dos passos em "How it works". */
+.steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr);
+  gap: 1.25rem 0;
+  margin-top: 2.2rem;
+  counter-reset: step;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: .5rem;
+  bottom: .5rem;
+  left: 50%;
+  width: 3px;
+  background: var(--wine);
+  transform: translateX(-50%);
+}
+
+.steps li {
+  position: relative;
+  min-width: 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--cream-shade);
+  counter-increment: step;
+}
+
+.steps li:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.steps li:nth-child(2) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.steps li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.steps li:nth-child(4) {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+.steps li:nth-child(odd) {
+  border-right: 5px solid var(--wine);
+  text-align: center;
+}
+
+.steps li:nth-child(even) {
+  border-left: 5px solid var(--wine);
+}
+
+.steps li::before {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  z-index: 1;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 3px solid var(--cream);
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 2px var(--wine);
+}
+
+.steps li:nth-child(odd)::before {
+  right: -2.55rem;
+}
+
+.steps li:nth-child(even)::before {
+  left: -2.55rem;
+}
+
+.steps li::after {
+  content: "";
+  position: absolute;
+  top: 2.05rem;
+  width: 1.45rem;
+  height: 2px;
+  background: var(--wine);
+}
+
+.steps li:nth-child(odd)::after {
+  right: -1.45rem;
+}
+
+.steps li:nth-child(even)::after {
+  left: -1.45rem;
+}
+
+.steps h3::before {
+  content: "TRIN " counter(step, decimal-leading-zero);
+  display: block;
+  color: var(--wine);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  margin-bottom: .35rem;
+}
+
+html[lang="en"] .steps h3::before {
+  content: "STEP " counter(step, decimal-leading-zero);
+}
+
+/* Contacto direto para registar interesse na experiência. */
+.form-wrap {
+  max-width: 560px;
+}
+
+.form-wrap > .btn {
+  margin-top: 1.5rem;
+}
+
+/* Rodapé com contactos e ligações informativas. */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 2rem;
+  align-items: center;
+  padding: 2rem 5vw;
+  background: var(--wine);
+  color: var(--cream);
+}
+
+.footer a {
+  color: var(--golden-yellow);
+}
+
+.footer small {
+  flex-basis: 100%;
+}
+
+/* Animação de entrada dos elementos marcados com .reveal. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .6s ease, transform .6s ease;
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reduz movimento para quem o desativou nas definições do sistema. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nav {
+    transition: none;
+  }
+
+  .nav-toggle span {
+    transition: none;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Ajustes para ecrãs pequenos, como telemóveis. */
+@media (min-width: 761px) and (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .nav nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: .45rem 5vw 1rem;
+    border-bottom: 2px solid var(--yellow);
+    background: var(--cream);
+    box-shadow: 0 10px 18px rgb(0 0 0 / 10%);
+  }
+
+  .nav.nav-menu-open nav {
+    display: flex;
+  }
+
+  .nav nav a {
+    padding: .7rem 0;
+  }
+
+  .nav nav .btn {
+    margin-top: .45rem;
+    padding: .65rem 1rem;
+    text-align: center;
+  }
+
+  .language-toggle {
+    align-self: center;
+    margin-top: .7rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .product,
+  .story-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .story-hero {
+    gap: 2rem;
+    padding: 3.5rem 5vw;
+  }
+
+  .story-hero img {
+    max-height: 330px;
+  }
+
+  .story-two-column {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .story-two-column h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .product-highlights,
+  .product-landscapes {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 1.2rem 0;
+  }
+
+  .steps::before {
+    left: .75rem;
+    transform: none;
+  }
+
+  .steps li:nth-child(n) {
+    grid-column: 2;
+    grid-row: auto;
+    border-right: 0;
+    border-left: 5px solid var(--wine);
+    text-align: center;
+  }
+
+  .steps li::before {
+    right: auto;
+    left: -1.3rem;
+  }
+
+  .steps li::after {
+    right: auto;
+    left: -.75rem;
+    width: .75rem;
+  }
+
+  .hero {
+    min-height: min(92vh, 850px);
+    padding: 3.5rem 5vw;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  /* O menu compacto abre os links quando o visitante toca no botão. */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .nav nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: .45rem 5vw 1rem;
+    border-bottom: 2px solid var(--yellow);
+    background: var(--cream);
+    box-shadow: 0 10px 18px rgb(0 0 0 / 10%);
+  }
+
+  .nav.nav-menu-open nav {
+    display: flex;
+  }
+
+  .nav nav a {
+    padding: .7rem 0;
+  }
+
+  .nav nav .btn {
+    margin-top: .45rem;
+    padding: .65rem 1rem;
+    text-align: center;
+  }
+
+  .language-toggle {
+    align-self: center;
+    margin-top: .7rem;
+  }
+
+  .sec {
+    padding: 3.5rem 5vw;
+  }
+
+}
