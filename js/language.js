@@ -94,7 +94,7 @@ const englishText = {
   'Følg LULO på Instagram': 'Follow LULO on Instagram',
   'Følg LULO på Instagram, @joinlulo': 'Follow LULO on Instagram, @joinlulo',
   'LULO på LinkedIn': 'LULO on LinkedIn',
-  'LinkedIn · LULO Connect': 'LinkedIn · LULO Connect',
+  'LinkedIn · Join Lulo': 'LinkedIn · Join Lulo',
   'Privatliv og cookies': 'Privacy and cookies',
   'Menneskene og formålet bag LULO': 'The people and purpose behind LULO',
   'Kom tættere på Latinamerika og på de mennesker, der kalder regionen deres hjem.': 'Get closer to Latin America and to the people who call the region home.',
