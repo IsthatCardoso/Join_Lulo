@@ -54,6 +54,39 @@
           <p><a href="https://www.linkedin.com/company/luloconnect/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn · Join Lulo</a></p>
         </article>
       </div>
+
+      <div class="contact-form-wrap">
+        <h2>Join Lulo</h2>
+        <p class="contact-form-intro">Udfyld formularen, så vender vi tilbage til dig.</p>
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/info@joinlulo.com" method="POST">
+          <input type="hidden" name="_subject" value="Ny besked fra LULO's kontaktside">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="company-website">Lad dette felt stå tomt</label>
+            <input id="company-website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="contact-form-field">
+            <label for="contact-name">Navn</label>
+            <input id="contact-name" type="text" name="name" autocomplete="name" required>
+          </div>
+          <div class="contact-form-field">
+            <label for="contact-phone">Telefon</label>
+            <input id="contact-phone" type="tel" name="phone" autocomplete="tel">
+          </div>
+          <div class="contact-form-field">
+            <label for="contact-email">E-mail</label>
+            <input id="contact-email" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="contact-form-field">
+            <label for="contact-description">Beskrivelse</label>
+            <textarea id="contact-description" name="description" rows="5" required></textarea>
+          </div>
+          <button class="btn" type="submit">Send besked</button>
+          <p class="contact-form-privacy">Når du sender formularen, deles oplysningerne med FormSubmit, som videresender dem til LULO. Læs mere i vores <a href="privacy.html">privatlivspolitik</a>.</p>
+          <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -68,5 +101,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/language.js"></script>
+  <script src="js/contact-form.js"></script>
 </body>
 </html>
