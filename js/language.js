@@ -7,6 +7,13 @@ const englishText = {
   'Luk menu': 'Close menu',
   'Hovednavigation': 'Main navigation',
   'Om os': 'About us',
+  'Kontakt': 'Contact',
+  'Kontakt os': 'Contact us',
+  'Adresse': 'Address',
+  'Telefon': 'Phone',
+  'E-mail': 'Email',
+  'Sociale medier': 'Social media',
+  'Har du spørgsmål eller vil du vide mere om vores oplevelser? Kontakt os gerne via telefon eller e-mail, eller følg os på sociale medier.': 'Have a question or want to learn more about our experiences? Contact us by phone or email, or follow us on social media.',
   'Hvorfor LULO?': 'Why LULO?',
   'Destinationer': 'Destinations',
   'Oplevelser': 'Experiences',
@@ -131,13 +138,17 @@ const englishText = {
   'Tredjepartstjenester': 'Third-party services',
   'Hjemmesiden bruger den besøgendes systemskrifttype og indlæser ikke analyseværktøjer, reklamer eller skrifttypefiler fra tredjeparter. Den linker til Instagram og LinkedIn. Tjenesterne modtager oplysninger, hvis du vælger at åbne dem, og deres egne privatlivspolitikker gælder.': 'The website uses the visitor’s system font and does not load analytics, advertising, or font files from third parties. It links to Instagram and LinkedIn. These services receive information if you choose to open them, and their own privacy policies apply.',
   'Instagram er LULOs nuværende kontaktkanal. Hvis du sender en direkte besked, kan LULO se oplysningerne i din besked og dem, der er synlige på din profil. Meta behandler også oplysninger som platformudbyder. LULOs opbevaringsperiode for beskeder og den ansvarlige for at håndtere anmodninger skal stadig bekræftes.': 'Instagram is currently LULO’s contact channel. If you send a direct message, LULO can see the information in your message and the details visible on your profile. Meta also processes information as the platform provider. LULO’s message retention period and the person responsible for handling requests still need to be confirmed.',
+  'Instagram er en af LULOs kontaktkanaler. Hvis du sender en direkte besked, kan LULO se oplysningerne i din besked og dem, der er synlige på din profil. Meta behandler også oplysninger som platformudbyder. LULOs opbevaringsperiode for beskeder og den ansvarlige for at håndtere anmodninger skal stadig bekræftes.': 'Instagram is one of LULO’s contact channels. If you send a direct message, LULO can see the information in your message and the details visible on your profile. Meta also processes information as the platform provider. LULO’s message retention period and the person responsible for handling requests still need to be confirmed.',
   'Cookies': 'Cookies',
   'Projektets kode indeholder ikke funktioner, der sætter cookies. Det er endnu ikke undersøgt, om webhotellet tilføjer cookies eller bruger andre teknologier. Den offentliggjorte hjemmeside skal derfor gennemgås, før det afgøres, om der kræves en cookieoplysning eller en samtykkefunktion.': 'The project code contains no features that set cookies. It has not yet been checked whether the hosting provider adds cookies or uses other technologies. The published website should therefore be reviewed before deciding whether a cookie notice or consent feature is needed.',
   'Kontakt og personoplysninger': 'Contact and personal information',
   'Den eneste kontaktkanal til LULO, vi kender i øjeblikket, er': 'The only contact channel for LULO currently known to us is',
+  'LULO kan kontaktes via telefon, e-mail og Instagram. Se kontaktoplysningerne på': 'You can contact LULO by phone, email, and Instagram. Find the contact details on the',
+  'kontaktsiden': 'contact page',
+  'Organisationens procedure for anmodninger vedrørende personoplysninger skal stadig bekræftes.': 'The organisation’s process for personal data requests still needs to be confirmed.',
   'Organisationens officielle kontaktoplysninger og procedure for anmodninger vedrørende personoplysninger skal stadig bekræftes.': 'The organisation’s official contact details and process for personal data requests still need to be confirmed.',
   'Senest opdateret:': 'Last updated:',
-  '26. oktober 2026. Beskrivelsen skal opdateres, når den juridiske enhed, webhotellet, kontaktoplysningerne eller hjemmesidens funktioner er bekræftet.': '26 October 2026. This notice should be updated once the legal entity, hosting provider, contact details, and website features have been confirmed.'
+  '4. november 2026. Beskrivelsen skal opdateres, når den juridiske enhed, webhotellet, kontaktoplysningerne eller hjemmesidens funktioner er bekræftet.': '4 November 2026. This notice should be updated once the legal entity, hosting provider, contact details, and website features have been confirmed.'
 };
 
 const attributeEnglish = {
@@ -151,6 +162,7 @@ const attributeEnglish = {
   'Følg LULO på Instagram, @joinlulo': 'Follow LULO on Instagram, @joinlulo',
   'LULO på LinkedIn': 'LULO on LinkedIn',
   'Læs om idéen, formålet og værdierne bag LULOs kulturelle oplevelser i Latinamerika.': 'Learn about the idea, purpose, and values behind LULO’s cultural experiences in Latin America.',
+  'Kontakt LULO via adresse, telefon, e-mail, Instagram eller LinkedIn.': 'Contact LULO by address, phone, email, Instagram, or LinkedIn.',
   'Indledende information om privatliv og cookies på LULOs hjemmeside.': 'Initial information about privacy and cookies on the LULO website.',
   'En person udforsker den tætte regnskov': 'A person explores the dense rainforest',
   'En forsker undersøger en lille frø i regnskoven': 'A researcher examines a small frog in the rainforest',
@@ -216,7 +228,7 @@ function setLanguage(language) {
     title.dataset.originalTitle ??= title.textContent;
     if (isEnglish) {
       title.textContent = title.textContent.replace('Oplev Latinamerika på en anden måde', 'Experience Latin America in a different way');
-      title.textContent = title.textContent.replace('Om os', 'About us').replace('Privatliv og cookies', 'Privacy and cookies');
+      title.textContent = title.textContent.replace('Om os', 'About us').replace('Privatliv og cookies', 'Privacy and cookies').replace('Kontakt', 'Contact');
     } else {
       title.textContent = title.dataset.originalTitle;
     }

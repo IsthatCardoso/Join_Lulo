@@ -869,6 +869,62 @@ html[lang="en"] .steps h3::before {
   flex-basis: 100%;
 }
 
+/* Contact details presented as simple, responsive cards. */
+.contact-page {
+  font-family: var(--font);
+}
+
+.contact-page > h1 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 1050px;
+  margin: 2.5rem auto 0;
+}
+
+.contact-card {
+  display: flex;
+  min-height: 170px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  border-left-color: var(--punchy-red);
+}
+
+.contact-card h2 {
+  margin-bottom: .6rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.contact-card address,
+.contact-card p {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.contact-card a {
+  color: var(--blackish-brown);
+  font-weight: 650;
+  text-decoration-color: transparent;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible,
+.contact-card a:active {
+  color: var(--punchy-red);
+  text-decoration-color: currentColor;
+}
+
 /* Animação de entrada dos elementos marcados com .reveal. */
 .js .reveal {
   opacity: 0;

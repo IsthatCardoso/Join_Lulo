@@ -6,6 +6,7 @@ Static website for LULO. No build step or database is required.
 
 - `index.html` — landing page
 - `who-we-are.html` — About us page
+- `contact.html` — contact details
 - `privacy.html` — privacy information
 - `assets/` — active logos, favicon sources, images, and the first hero-video part
 - `css/style.css` — layout, colors, and responsive styling
