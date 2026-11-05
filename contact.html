@@ -58,9 +58,7 @@
       <div class="contact-form-wrap">
         <h2>Join Lulo</h2>
         <p class="contact-form-intro">Udfyld formularen, så vender vi tilbage til dig.</p>
-        <form class="contact-form" id="contact-form" action="https://formsubmit.co/info@joinlulo.dk" method="POST">
-          <input type="hidden" name="_subject" value="Ny besked fra LULO's kontaktside">
-          <input type="hidden" name="_template" value="table">
+        <form class="contact-form" id="contact-form" action="contact-handler.php" method="POST">
           <div class="form-honeypot" aria-hidden="true">
             <label for="company-website">Lad dette felt stå tomt</label>
             <input id="company-website" type="text" name="_honey" tabindex="-1" autocomplete="off">
@@ -83,7 +81,7 @@
             <textarea id="contact-description" name="description" rows="5" required></textarea>
           </div>
           <button class="btn" type="submit">Send besked</button>
-          <p class="contact-form-privacy">Når du sender formularen, deles oplysningerne med FormSubmit, som videresender dem til LULO. Læs mere i vores <a href="privacy.html">privatlivspolitik</a>.</p>
+          <p class="contact-form-privacy">Dine oplysninger sendes til LULO via Simply.coms mailserver. Læs mere i vores <a href="privacy.html">privatlivspolitik</a>.</p>
         </form>
       </div>
     </section>
