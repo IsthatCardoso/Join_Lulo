@@ -18,7 +18,7 @@ if (contactForm) {
         throw new Error('Open the website through its host or a local web server before submitting the form.');
       }
 
-      const response = await fetch('https://formsubmit.co/ajax/info@joinlulo.com', {
+      const response = await fetch('https://formsubmit.co/ajax/info@joinlulo.dk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,8 +34,8 @@ if (contactForm) {
         if (serviceMessage.includes('activation') || serviceMessage.includes('actived')) {
           status.dataset.state = 'error';
           status.textContent = isEnglish
-            ? 'The form still needs activation. Check the inbox and spam folder for info@joinlulo.com, then click FormSubmit’s activation link.'
-            : 'Formularen mangler aktivering. Tjek indbakken og spam-mappen for info@joinlulo.com, og klik på aktiveringslinket fra FormSubmit.';
+            ? 'The form still needs activation. Check the inbox and spam folder for info@joinlulo.dk, then click FormSubmit’s activation link.'
+            : 'Formularen mangler aktivering. Tjek indbakken og spam-mappen for info@joinlulo.dk, og klik på aktiveringslinket fra FormSubmit.';
           return;
         }
 
@@ -54,8 +54,8 @@ if (contactForm) {
           : 'Formularen kan ikke sendes fra en fil, der åbnes direkte. Åbn hjemmesiden via webhotellet eller en lokal webserver.';
       } else {
         status.textContent = isEnglish
-          ? 'We could not send your message. Please try again or email info@joinlulo.com.'
-          : 'Din besked kunne ikke sendes. Prøv igen, eller skriv til info@joinlulo.com.';
+          ? 'We could not send your message. Please try again or email info@joinlulo.dk.'
+          : 'Din besked kunne ikke sendes. Prøv igen, eller skriv til info@joinlulo.dk.';
       }
     } finally {
       submitButton.disabled = false;
