@@ -16,6 +16,6 @@ Website for LULO. The pages are static except for the contact handler, which req
 - `LULO_finalvideo-hero-part2.mp4` — second hero-video part, kept in the project root
 - `lixo/` — archived files that are no longer used by the website
 
-For Simply.com, enable PHP for the website, upload the HTML and PHP files plus `assets/`, `css/`, `js/`, and the `private/` directory. On the server, copy `private/mail-config.example.php` to `private/mail-config.php` and enter the password for a Simply.com email mailbox. Keep `private/mail-config.php` out of shared/public source control. The sender mailbox must exist in Simply.com Mail Administration; SMTP uses `websmtp.simply.com` on port 587 with STARTTLS.
+For Simply.com, enable PHP for the website and upload the HTML and PHP files plus `assets/`, `css/`, and `js/` into `public_html`. Copy `private/mail-config.example.php` to `private/mail-config.php` in a `private/` folder alongside (outside) `public_html`, then enter the password for a Simply.com email mailbox. The handler looks for `../private/mail-config.php` first. Keep the password file outside the public website and out of shared/public source control. The sender mailbox must exist in Simply.com Mail Administration; SMTP uses `websmtp.simply.com` on port 587 with STARTTLS.
 
 Upload the root-level second hero video as well. The `lixo/` archive and this README are not needed by the live site.

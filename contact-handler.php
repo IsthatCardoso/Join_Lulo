@@ -39,8 +39,21 @@ if (strlen($name) > 600 || strlen($phone) > 320 || strlen($email) > 254 || strle
     showResult(422, 'Beskeden er for lang', 'Kontrollér felterne, og prøv igen.');
 }
 
-$configPath = __DIR__ . '/private/mail-config.php';
-if (!is_file($configPath)) {
+$configuredPath = getenv('LULO_MAIL_CONFIG');
+$configPaths = array_filter([
+    $configuredPath !== false ? $configuredPath : null,
+    dirname(__DIR__) . '/private/mail-config.php',
+    __DIR__ . '/private/mail-config.php',
+]);
+$configPath = null;
+foreach ($configPaths as $candidatePath) {
+    if (is_file($candidatePath) && is_readable($candidatePath)) {
+        $configPath = $candidatePath;
+        break;
+    }
+}
+
+if ($configPath === null) {
     showResult(503, 'Formularen er ikke sat op endnu', 'E-mailafsendelsen skal først konfigureres på webhotellet. Kontakt info@joinlulo.dk.');
 }
 
