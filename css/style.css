@@ -1005,15 +1005,6 @@ html[lang="en"] .steps h3::before {
   line-height: 1.5;
 }
 
-.contact-form-status:empty {
-  display: none;
-}
-
-.contact-form-status[data-state="error"] {
-  color: #9b1025;
-  font-weight: 700;
-}
-
 .form-honeypot {
   display: none;
 }
